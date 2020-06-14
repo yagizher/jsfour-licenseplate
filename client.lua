@@ -20,8 +20,8 @@ AddEventHandler('jsfour-licenseplate', function()
 		title    = 'Licenseplate menu',
     		align    = 'bottom-right',
 		elements = {
-			{label = 'Change number', value = 'change'},
-			{label = 'Apply to car', value = 'apply'},
+			{label = 'Numarayı değiştir', value = 'change'},
+			{label = 'Arabaya uygula', value = 'apply'},
 		}
 	},
 	function(data, menu)
@@ -45,14 +45,14 @@ AddEventHandler('jsfour-licenseplate', function()
               SetVehicleNumberPlateText(vehicle, plate)
               plate = nil
             elseif cb == 'error' then
-              ESX.ShowNotification('You couldnt apply the license plate')
+              ESX.ShowNotification('Plakayı yerleştiremedin.')
             end
           end, oldplate, plate)
         else
-          ESX.ShowNotification('No vehicle nearby')
+          ESX.ShowNotification('Yakında araç yok.')
         end
       else
-        ESX.ShowNotification('Cant apply empty plate')
+        ESX.ShowNotification('Boş plakayı yerleştiremezsin.')
       end
 		end
 	end,
@@ -64,6 +64,6 @@ end)
 
 -- NUI Callback - close
 RegisterNUICallback('escape', function(data, cb)
-  plate = data.number
+  	plate = data.number
 	SetNuiFocus(false, false)
 end)
