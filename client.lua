@@ -1,5 +1,4 @@
-local = nil
-local plate = nil
+local ESX, plate = nil
 
 -- ESX
 Citizen.CreateThread(function()
